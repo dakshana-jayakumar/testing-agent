@@ -1,10 +1,10 @@
-# TestSage: AI-Powered Error Intelligence & Test Validation System
+# Lumos: AI-Powered Error Intelligence & Test Validation System
 ## Complete Implementation Plan - MVP (5-6 Days)
 
 ## 🎯 Project Overview
 
 ### Primary Objective
-Create **TestSage** - an intelligent testing agent that transforms how developers debug and validate tests using AI-powered analysis, pattern recognition, and community knowledge mining.
+Create **Lumos** - an intelligent testing agent that transforms how developers debug and validate tests using AI-powered analysis, pattern recognition, and community knowledge mining.
 
 ### Core Value Proposition
 - **Reduce debugging time by 60%** through intelligent error analysis
