@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modal Overlay Testing - Lumos AI Testing Platform</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .test-section {
+            margin: 30px 0;
+            padding: 20px;
+            border: 2px solid #f0f0f0;
+            border-radius: 8px;
+        }
+
+        .test-controls {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin: 20px 0;
+        }
+
+        button {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .primary-btn {
+            background: #007bff;
+            color: white;
+        }
+
+        .primary-btn:hover {
+            background: #0056b3;
+            transform: translateY(-2px);
+        }
+
+        .secondary-btn {
+            background: #6c757d;
+            color: white;
+        }
+
+        .back-btn {
+            background: #28a745;
+            color: white;
+            position: relative;
+            z-index: 10;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal.overlay-active {
+            display: flex;
+        }
+
+        .modal.bottom {
+            align-items: flex-end;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            max-width: 500px;
+            width: 90%;
+            margin: 20px;
+            position: relative;
+            animation: modalSlideIn 0.3s ease;
+        }
+
+        .modal.bottom .modal-content {
+            border-radius: 10px 10px 0 0;
+            margin: 0;
+            width: 100%;
+            max-width: 100%;
+            animation: modalSlideUp 0.3s ease;
+        }
+
+        @keyframes modalSlideIn {
+            from { opacity: 0; transform: scale(0.8); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        @keyframes modalSlideUp {
+            from { transform: translateY(100%); }
+            to { transform: translateY(0); }
+        }
+
+        .close-button {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: #999;
+        }
+
+        .close-button:hover {
+            color: #333;
+        }
+
+        .status-display {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 6px;
+            font-weight: 600;
+        }
+
+        .status-display.success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+
+        .status-display.error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+
+        .backdrop-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+            display: none;
+        }
+
+        .backdrop-overlay.active {
+            display: block;
+        }
+
+        /* Svelte-like classes for compatibility */
+        .svelte-1bprkf6 {
+            /* Simulating Svelte component classes */
+            pointer-events: auto;
+        }
+
+        .svelte-m53vrh {
+            /* Simulating component styling */
+            border: 2px solid #007bff;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎭 Modal Overlay Testing Interface</h1>
+        <p>This page simulates the real-world modal overlay click interception error scenario for Lumos AI analysis.</p>
+
+        <div class="test-section">
+            <h3>Test Scenario: Modal Overlay Click Blocking</h3>
+            <p>This replicates the exact error: <code>Test timeout of 60000ms exceeded</code> with "subtree intercepts pointer events"</p>
+            
+            <div class="test-controls">
+                <button class="primary-btn" data-testid="open-blocking-modal" onclick="openBlockingModal()">
+                    🚫 Open Blocking Modal
+                </button>
+                
+                <button class="back-btn" role="button" onclick="goBack()">
+                    Back
+                </button>
+                
+                <button class="secondary-btn" onclick="resetTest()">
+                    🔄 Reset Test
+                </button>
+            </div>
+
+            <div id="test-status" class="status-display" style="display: none;">
+                Status updates will appear here...
+            </div>
+        </div>
+
+        <div class="test-section">
+            <h3>🤖 AI Analysis Strategies</h3>
+            <div class="test-controls">
+                <button class="secondary-btn" onclick="demonstrateSmartDismissal()">
+                    🧠 Smart Modal Dismissal
+                </button>
+                
+                <button class="secondary-btn" onclick="demonstrateForceClick()">
+                    ⚡ Force Click Strategy
+                </button>
+                
+                <button class="secondary-btn" onclick="demonstrateElementAnalysis()">
+                    🔍 Element State Analysis
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Backdrop overlay -->
+    <div class="backdrop-overlay modal-backdrop" onclick="closeModal()"></div>
+
+    <!-- Main blocking modal -->
+    <div id="blockingModal" class="modal bottom overlay-active svelte-1bprkf6" style="display: none;">
+        <div class="modal-content">
+            <button class="close-button" onclick="closeModal()">&times;</button>
+            <h3>🚫 Blocking Modal Active</h3>
+            <p>This modal is intentionally blocking interactions with the "Back" button to simulate the real-world error scenario.</p>
+            <p><strong>Error Simulation:</strong> The Back button is visible but not clickable due to this modal overlay intercepting pointer events.</p>
+            
+            <div style="margin-top: 20px;">
+                <button class="secondary-btn" onclick="closeModal()">Close Modal</button>
+                <button class="primary-btn" onclick="triggerTimeout()">Trigger Timeout Error</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let modalOpen = false;
+        let testStartTime = null;
+
+        function showStatus(message, type = 'success') {
+            const statusDiv = document.getElementById('test-status');
+            statusDiv.textContent = message;
+            statusDiv.className = `status-display ${type}`;
+            statusDiv.style.display = 'block';
+            
+            console.log(`[Lumos Test] ${type.toUpperCase()}: ${message}`);
+        }
+
+        function openBlockingModal() {
+            console.log('🎭 Opening blocking modal - simulating real-world modal overlay scenario');
+            
+            const modal = document.getElementById('blockingModal');
+            const backdrop = document.querySelector('.backdrop-overlay');
+            
+            modal.style.display = 'flex';
+            backdrop.classList.add('active');
+            modalOpen = true;
+            testStartTime = Date.now();
+            
+            showStatus('Blocking modal opened - Back button should now be blocked', 'error');
+            
+            // Make the modal truly blocking by preventing clicks on underlying elements
+            modal.addEventListener('click', function(e) {
+                e.stopPropagation();
+            });
+        }
+
+        function closeModal() {
+            console.log('🔓 Closing modal - should restore element accessibility');
+            
+            const modal = document.getElementById('blockingModal');
+            const backdrop = document.querySelector('.backdrop-overlay');
+            
+            modal.style.display = 'none';
+            backdrop.classList.remove('active');
+            modalOpen = false;
+            
+            if (testStartTime) {
+                const duration = Date.now() - testStartTime;
+                showStatus(`Modal closed after ${duration}ms - Back button should now be accessible`, 'success');
+            }
+        }
+
+        function goBack() {
+            if (modalOpen) {
+                // This simulates the blocked interaction
+                console.error('🚫 Click blocked by modal overlay - simulating timeout scenario');
+                showStatus('Click on Back button blocked by modal overlay!', 'error');
+                
+                // Simulate the timeout error that would occur
+                setTimeout(() => {
+                    showStatus('ERROR: Test timeout exceeded - modal overlay blocking interaction', 'error');
+                }, 100);
+            } else {
+                console.log('✅ Back button clicked successfully');
+                showStatus('Back button clicked successfully - no modal blocking', 'success');
+            }
+        }
+
+        function resetTest() {
+            closeModal();
+            showStatus('Test environment reset', 'success');
+        }
+
+        function triggerTimeout() {
+            showStatus('Simulating 60-second timeout with multiple retry attempts...', 'error');
+            
+            // Simulate the retry pattern from the real error
+            let retryCount = 0;
+            const maxRetries = 10; // Reduced for demo
+            
+            const retryInterval = setInterval(() => {
+                retryCount++;
+                console.log(`🔄 Retry attempt ${retryCount}: Element visible but not clickable`);
+                showStatus(`Retry ${retryCount}/${maxRetries}: Element visible, scrolled into view, but modal intercepts pointer events`, 'error');
+                
+                if (retryCount >= maxRetries) {
+                    clearInterval(retryInterval);
+                    showStatus('TIMEOUT ERROR: 107 retry attempts failed - modal overlay blocking all interactions', 'error');
+                }
+            }, 200);
+        }
+
+        function demonstrateSmartDismissal() {
+            openBlockingModal();
+            setTimeout(() => {
+                showStatus('🤖 AI Strategy: Modal detected, attempting smart dismissal...', 'success');
+                setTimeout(() => {
+                    closeModal();
+                    showStatus('✅ Smart dismissal successful - target action can now proceed', 'success');
+                }, 1000);
+            }, 500);
+        }
+
+        function demonstrateForceClick() {
+            openBlockingModal();
+            setTimeout(() => {
+                showStatus('⚡ Attempting force click to bypass modal overlay...', 'success');
+                setTimeout(() => {
+                    showStatus('✅ Force click strategy successful - bypassed modal blocking', 'success');
+                    closeModal();
+                }, 1000);
+            }, 500);
+        }
+
+        function demonstrateElementAnalysis() {
+            showStatus('🔍 Analyzing element state: visible=true, enabled=true, clickable=true', 'success');
+            
+            setTimeout(() => {
+                openBlockingModal();
+                showStatus('🔍 After modal: visible=true, enabled=true, clickable=false (blocked by overlay)', 'error');
+                
+                setTimeout(() => {
+                    closeModal();
+                    showStatus('🔍 After modal close: visible=true, enabled=true, clickable=true (restored)', 'success');
+                }, 2000);
+            }, 1000);
+        }
+
+        // Initialize page
+        console.log('🎭 Modal Overlay Testing Interface initialized');
+        console.log('🤖 Ready for Lumos AI analysis of modal blocking scenarios');
+    </script>
+</body>
+</html>

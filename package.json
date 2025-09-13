@@ -1,0 +1,105 @@
+{
+  "name": "lumos",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Enterprise-grade AI Testing Intelligence Platform with Unified Context System",
+  "keywords": [
+    "testing",
+    "ai",
+    "debugging",
+    "cli",
+    "playwright",
+    "typescript",
+    "enterprise",
+    "automation",
+    "error-analysis",
+    "ci-cd"
+  ],
+  "author": "Lumos Team",
+  "homepage": "https://github.com/lumos/lumos",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lumos/lumos.git"
+  },
+  "bugs": {
+    "url": "https://github.com/lumos/lumos/issues"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "exports": {
+    ".": "./dist/index.js",
+    "./cli": "./dist/cli/index.js",
+    "./core": "./dist/core/index.js",
+    "./utils": "./dist/utils/index.js"
+  },
+  "bin": {
+    "lumos": "./dist/cli/index.js"
+  },
+  "scripts": {
+    "build": "tsc && chmod +x dist/cli/index.js",
+    "build:watch": "tsc --watch",
+    "dev": "tsx watch src/cli/index.ts",
+    "dev:debug": "tsx watch --inspect src/cli/index.ts",
+    "test": "vitest",
+    "test:watch": "vitest --watch",
+    "test:coverage": "vitest --coverage",
+    "test:ui": "vitest --ui",
+    "test:playwright": "playwright test",
+    "test:e2e": "playwright test --project=chromium",
+    "lint": "eslint src/ --ext .ts,.js",
+    "lint:fix": "eslint src/ --ext .ts,.js --fix",
+    "lint:staged": "lint-staged",
+    "typecheck": "tsc --noEmit",
+    "typecheck:watch": "tsc --noEmit --watch",
+    "prepare": "husky install",
+    "semantic-release": "semantic-release",
+    "benchmark": "tsx scripts/performance/benchmark.ts",
+    "health-check": "tsx scripts/health/system-check.ts",
+    "cache:clear": "lumos cache clear",
+    "cache:stats": "lumos cache stats",
+    "validate:config": "lumos config validate",
+    "docs:generate": "typedoc src/ --out docs/api",
+    "docs:build": "mkdocs build",
+    "docs:serve": "mkdocs serve",
+    "docs:deploy": "mkdocs gh-deploy",
+    "release": "semantic-release",
+    "release:dry": "semantic-release --dry-run",
+    "quality:check": "npm run lint && npm run typecheck && npm run test:coverage",
+    "precommit": "lint-staged && npm run typecheck"
+  },
+  "dependencies": {
+    "@juspay/neurolink": "^7.43.0",
+    "better-sqlite3": "^9.2.2",
+    "chalk": "^5.3.0",
+    "commander": "^11.1.0",
+    "execa": "^8.0.1",
+    "ora": "^7.0.1",
+    "playwright": "^1.40.1",
+    "undici": "^5.28.2",
+    "yaml": "^2.3.4",
+    "zod": "^3.22.4"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.40.1",
+    "@types/better-sqlite3": "^7.6.8",
+    "@types/js-yaml": "^4.0.9",
+    "@types/node": "^20.10.0",
+    "@typescript-eslint/eslint-plugin": "^6.14.0",
+    "@typescript-eslint/parser": "^6.14.0",
+    "@vitest/ui": "^1.0.4",
+    "eslint": "^8.56.0",
+    "happy-dom": "^12.10.3",
+    "husky": "^8.0.3",
+    "lint-staged": "^15.2.0",
+    "memfs": "^4.6.0",
+    "mock-fs": "^5.2.0",
+    "msw": "^2.0.11",
+    "nock": "^13.4.0",
+    "prettier": "^3.6.2",
+    "semantic-release": "^21.1.0",
+    "tsx": "^4.6.2",
+    "typescript": "^5.3.2",
+    "vitest": "^1.0.4"
+  }
+}

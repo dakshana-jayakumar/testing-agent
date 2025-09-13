@@ -1,0 +1,517 @@
+{
+  "config": {
+    "configFile": "/Users/dakshana.j/Desktop/Desktop/Breeze_repos/testing-agent-model/playwright.config.ts",
+    "rootDir": "/Users/dakshana.j/Desktop/Desktop/Breeze_repos/testing-agent-model/tests",
+    "forbidOnly": false,
+    "fullyParallel": true,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 3
+    },
+    "preserveOutput": "always",
+    "reporter": [
+      [
+        "html",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "tests/demo/demo-outputs/playwright-report.json"
+        }
+      ],
+      [
+        "line",
+        null
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "quiet": false,
+    "projects": [
+      {
+        "outputDir": "/Users/dakshana.j/Desktop/Desktop/Breeze_repos/testing-agent-model/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 3
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "/Users/dakshana.j/Desktop/Desktop/Breeze_repos/testing-agent-model/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "shard": null,
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.55.0",
+    "workers": 5,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "demo/lumos-showcase.spec.ts",
+      "file": "demo/lumos-showcase.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "🔮 Lumos AI Testing Intelligence Demo",
+          "file": "demo/lumos-showcase.spec.ts",
+          "line": 19,
+          "column": 6,
+          "specs": [
+            {
+              "title": "🐛 Scenario 1: ReferenceError Analysis",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 2496,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "🚀 Demo page loaded successfully\n"
+                        },
+                        {
+                          "text": "\n=== Testing ReferenceError Analysis ===\n"
+                        },
+                        {
+                          "text": "🐛 Console Error Captured: ReferenceError caught: ReferenceError: undefinedVariable is not defined\n    at triggerReferenceError (file:///Users/dakshana.j/Desktop/Desktop/Breeze_repos/testing-agent-model/tests/demo/demo-page.html:122:29)\n    at HTMLButtonElement.onclick (file:///Users/dakshana.j/Desktop/Desktop/Breeze_repos/testing-agent-model/tests/demo/demo-page.html:75:78)\n"
+                        },
+                        {
+                          "text": "🤖 Running Lumos AI analysis for: reference-error\n"
+                        },
+                        {
+                          "text": "📝 Command: npm run build && node dist/cli/index.js analyze \"ReferenceError: undefinedVariable is not defined\" --research --fix-suggestions --confidence 0.7\n"
+                        },
+                        {
+                          "text": "✅ Analysis saved for reference-error\n"
+                        },
+                        {
+                          "text": "✅ ReferenceError scenario completed\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-09-22T09:22:51.679Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "8311bfde10dc600bb7e2-1f5712e979d6c7ecf548",
+              "file": "demo/lumos-showcase.spec.ts",
+              "line": 58,
+              "column": 3
+            },
+            {
+              "title": "🌐 Scenario 2: Network Error Analysis",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1046,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "🚀 Demo page loaded successfully\n"
+                        },
+                        {
+                          "text": "\n=== Testing Network Error Analysis ===\n"
+                        },
+                        {
+                          "text": "🐛 Console Error Captured: Failed to load resource: net::ERR_NAME_NOT_RESOLVED\n"
+                        },
+                        {
+                          "text": "🐛 Console Error Captured: Network error: TypeError: Failed to fetch\n    at triggerNetworkError (file:///Users/dakshana.j/Desktop/Desktop/Breeze_repos/testing-agent-model/tests/demo/demo-page.html:139:13)\n    at HTMLButtonElement.onclick (file:///Users/dakshana.j/Desktop/Desktop/Breeze_repos/testing-agent-model/tests/demo/demo-page.html:82:74)\n"
+                        },
+                        {
+                          "text": "🤖 Running Lumos AI analysis for: network-error\n"
+                        },
+                        {
+                          "text": "📝 Command: npm run build && node dist/cli/index.js analyze \"Network Error: Failed to fetch from nonexistent domain\" --research --fix-suggestions --confidence 0.7\n"
+                        },
+                        {
+                          "text": "✅ Analysis saved for network-error\n"
+                        },
+                        {
+                          "text": "✅ Network error scenario completed\n"
+                        },
+                        {
+                          "text": "\n🎉 LUMOS DEMO COMPLETED!\n"
+                        },
+                        {
+                          "text": "==========================================\n"
+                        },
+                        {
+                          "text": "📊 Total Scenarios: 2\n"
+                        },
+                        {
+                          "text": "🐛 Errors Captured: 2\n"
+                        },
+                        {
+                          "text": "✅ Success Cases: 0\n"
+                        },
+                        {
+                          "text": "🤖 AI Analyses: 2\n"
+                        },
+                        {
+                          "text": "==========================================\n"
+                        },
+                        {
+                          "text": "📁 Demo outputs saved to: tests/demo/demo-outputs/\n"
+                        },
+                        {
+                          "text": "🔮 Lumos AI Testing Intelligence Platform Demo Complete!\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-09-22T09:22:56.192Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "8311bfde10dc600bb7e2-50993619dc423d2d259b",
+              "file": "demo/lumos-showcase.spec.ts",
+              "line": 98,
+              "column": 3
+            },
+            {
+              "title": "🎯 Scenario 3: DOM Error Analysis",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 2471,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "🚀 Demo page loaded successfully\n"
+                        },
+                        {
+                          "text": "\n=== Testing DOM Error Analysis ===\n"
+                        },
+                        {
+                          "text": "🐛 Console Error Captured: DOM error: TypeError: Cannot read properties of null (reading 'style')\n    at triggerDOMError (file:///Users/dakshana.j/Desktop/Desktop/Breeze_repos/testing-agent-model/tests/demo/demo-page.html:160:36)\n    at HTMLButtonElement.onclick (file:///Users/dakshana.j/Desktop/Desktop/Breeze_repos/testing-agent-model/tests/demo/demo-page.html:90:66)\n"
+                        },
+                        {
+                          "text": "🤖 Running Lumos AI analysis for: dom-error\n"
+                        },
+                        {
+                          "text": "📝 Command: npm run build && node dist/cli/index.js analyze \"TypeError: Cannot read properties of null (reading style)\" --research --fix-suggestions --confidence 0.7\n"
+                        },
+                        {
+                          "text": "✅ Analysis saved for dom-error\n"
+                        },
+                        {
+                          "text": "✅ DOM error scenario completed\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-09-22T09:22:51.718Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "8311bfde10dc600bb7e2-d31d21ded2c68efd0968",
+              "file": "demo/lumos-showcase.spec.ts",
+              "line": 136,
+              "column": 3
+            },
+            {
+              "title": "⚡ Scenario 4: Type Error Analysis",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 835,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "🚀 Demo page loaded successfully\n"
+                        },
+                        {
+                          "text": "\n=== Testing Type Error Analysis ===\n"
+                        },
+                        {
+                          "text": "🐛 Console Error Captured: Type error: TypeError: Cannot read properties of null (reading 'toUpperCase')\n    at triggerTypeError (file:///Users/dakshana.j/Desktop/Desktop/Breeze_repos/testing-agent-model/tests/demo/demo-page.html:175:42)\n    at HTMLButtonElement.onclick (file:///Users/dakshana.j/Desktop/Desktop/Breeze_repos/testing-agent-model/tests/demo/demo-page.html:97:68)\n"
+                        },
+                        {
+                          "text": "🤖 Running Lumos AI analysis for: type-error\n"
+                        },
+                        {
+                          "text": "📝 Command: npm run build && node dist/cli/index.js analyze \"TypeError: Cannot read properties of null (reading toUpperCase)\" --research --fix-suggestions --confidence 0.7\n"
+                        },
+                        {
+                          "text": "✅ Analysis saved for type-error\n"
+                        },
+                        {
+                          "text": "✅ Type error scenario completed\n"
+                        },
+                        {
+                          "text": "\n🎉 LUMOS DEMO COMPLETED!\n"
+                        },
+                        {
+                          "text": "==========================================\n"
+                        },
+                        {
+                          "text": "📊 Total Scenarios: 2\n"
+                        },
+                        {
+                          "text": "🐛 Errors Captured: 2\n"
+                        },
+                        {
+                          "text": "✅ Success Cases: 0\n"
+                        },
+                        {
+                          "text": "🤖 AI Analyses: 2\n"
+                        },
+                        {
+                          "text": "==========================================\n"
+                        },
+                        {
+                          "text": "📁 Demo outputs saved to: tests/demo/demo-outputs/\n"
+                        },
+                        {
+                          "text": "🔮 Lumos AI Testing Intelligence Platform Demo Complete!\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-09-22T09:22:56.166Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "8311bfde10dc600bb7e2-27486b6bedeb4b704fcf",
+              "file": "demo/lumos-showcase.spec.ts",
+              "line": 174,
+              "column": 3
+            },
+            {
+              "title": "🎉 Scenario 5: Success Case (No Errors)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 3436,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "🚀 Demo page loaded successfully\n"
+                        },
+                        {
+                          "text": "\n=== Testing Success Scenario ===\n"
+                        },
+                        {
+                          "text": "✅ Success scenario completed - no errors as expected\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-09-22T09:22:51.709Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "8311bfde10dc600bb7e2-78914138f63d24d86ba6",
+              "file": "demo/lumos-showcase.spec.ts",
+              "line": 212,
+              "column": 3
+            },
+            {
+              "title": "📊 Complete CLI Demo",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 294,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "🚀 Demo page loaded successfully\n"
+                        },
+                        {
+                          "text": "\n=== Demonstrating Complete Lumos CLI ===\n"
+                        },
+                        {
+                          "text": "🔧 Testing lumos init...\n"
+                        },
+                        {
+                          "text": "📝 Running: lumos init --preset basic --force\n"
+                        },
+                        {
+                          "text": "🔍 Testing lumos validate...\n"
+                        },
+                        {
+                          "text": "📝 Running: lumos validate tests/ --coverage --flaky-detection\n"
+                        },
+                        {
+                          "text": "🔎 Testing lumos research...\n"
+                        },
+                        {
+                          "text": "📝 Running: lumos research \"javascript reference error\" --auto-rank\n"
+                        },
+                        {
+                          "text": "📈 Testing lumos utils status...\n"
+                        },
+                        {
+                          "text": "📝 Running: lumos utils status --detailed\n"
+                        },
+                        {
+                          "text": "⚙️ Testing lumos utils config...\n"
+                        },
+                        {
+                          "text": "📝 Running: lumos utils config validate\n"
+                        },
+                        {
+                          "text": "✅ All CLI commands tested successfully\n"
+                        },
+                        {
+                          "text": "\n🎉 LUMOS DEMO COMPLETED!\n"
+                        },
+                        {
+                          "text": "==========================================\n"
+                        },
+                        {
+                          "text": "📊 Total Scenarios: 1\n"
+                        },
+                        {
+                          "text": "🐛 Errors Captured: 0\n"
+                        },
+                        {
+                          "text": "✅ Success Cases: 1\n"
+                        },
+                        {
+                          "text": "🤖 AI Analyses: 0\n"
+                        },
+                        {
+                          "text": "==========================================\n"
+                        },
+                        {
+                          "text": "📁 Demo outputs saved to: tests/demo/demo-outputs/\n"
+                        },
+                        {
+                          "text": "🔮 Lumos AI Testing Intelligence Platform Demo Complete!\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-09-22T09:22:57.133Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "8311bfde10dc600bb7e2-7118ae7875d90ea77a60",
+              "file": "demo/lumos-showcase.spec.ts",
+              "line": 247,
+              "column": 3
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2025-09-22T09:22:50.893Z",
+    "duration": 6614.595,
+    "expected": 6,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

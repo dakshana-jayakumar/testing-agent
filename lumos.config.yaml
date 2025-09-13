@@ -1,0 +1,90 @@
+# Lumos Configuration File
+# Generated on 2025-09-18T20:37:38.714Z
+# Documentation: https://github.com/your-org/lumos#configuration
+
+ai:
+  # Primary AI provider selection
+  primaryProvider: openai
+  
+  # Provider-specific configurations
+  providers:
+    openai:
+      enabled: true
+      model: gpt-4-turbo-preview
+      visionModel: gpt-4-vision-preview
+      # apiKey: # Use OPENAI_API_KEY environment variable
+      # organizationId: # Optional OpenAI organization ID
+      maxTokens: 4000
+      temperature: 0.3
+      topP: 1
+      frequencyPenalty: 0
+      presencePenalty: 0
+    
+    anthropic:
+      enabled: true
+      model: claude-3-sonnet-20240229
+      # apiKey: # Use ANTHROPIC_API_KEY environment variable
+      maxTokens: 4000
+      temperature: 0.3
+      topP: 1
+      topK: 5
+    
+    google:
+      enabled: true
+      model: gemini-1.5-pro
+      # apiKey: # Use GOOGLE_API_KEY environment variable
+      maxTokens: 4000
+      temperature: 0.3
+      topP: 0.95
+      topK: 20
+      safetyThreshold: BLOCK_MEDIUM_AND_ABOVE
+  
+  # Fallback and coordination settings
+  fallback:
+    enabled: true
+    providers:
+      - anthropic
+      - google
+    retryAttempts: 3
+    retryDelay: 2000
+    exponentialBackoff: true
+  
+  # Rate limiting and cost optimization
+  rateLimiting:
+    enabled: true
+    requestsPerMinute: 60
+    tokensPerMinute: 50000
+    dailyCostLimit: 50 # USD
+  
+  # Analysis-specific settings
+  analysis:
+    maxScreenshots: 3
+    includeStackTrace: true
+    includeEnvironmentInfo: true
+    confidenceThreshold: 0.7
+    enableContextualAnalysis: true
+  
+  # Global AI settings
+  timeout: 30000
+  enableLogging: true
+  logLevel: info
+playwright:
+  headless: true
+  timeout: 30000
+  viewport:
+    width: 1280
+    height: 720
+testing:
+  coverageThreshold: 80
+  flakyDetection: true
+  performanceMonitoring: true
+research:
+  sources:
+    - stackoverflow
+    - github
+  maxResults: 10
+  confidenceThreshold: 0.7
+cache:
+  enabled: true
+  ttl: 1h
+  maxSize: 100mb

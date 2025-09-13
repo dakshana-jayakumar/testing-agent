@@ -1,0 +1,15 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+echo "🧪 Running pre-push validations..."
+
+# Run only successful demo tests for push validation
+echo "🔬 Running Lumos demo tests (successful scenarios only)..."
+npx playwright test tests/demo/lumos-showcase.spec.ts
+
+# Run TypeScript compilation check (double-check)
+echo "📋 Final TypeScript check..."
+npm run typecheck
+
+echo "✅ Pre-push validations completed! Safe to push."
+echo "💡 Run 'npm run test:playwright' locally to test all scenarios including error cases."

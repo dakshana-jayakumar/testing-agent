@@ -1,0 +1,5 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+# Use enhanced commit validation script
+node scripts/git/commit-validation.cjs "$1"
