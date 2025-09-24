@@ -1,0 +1,207 @@
+site_name: Lumos - AI Testing Intelligence Platform
+site_description: Enterprise-grade AI Testing Intelligence Platform that transforms test debugging from reactive problem-solving to proactive intelligence
+site_author: Lumos Team
+site_url: https://lumos-docs.dev
+
+# Repository
+repo_name: lumos/lumos
+repo_url: https://github.com/lumos/lumos
+edit_uri: edit/main/docs/
+
+# Copyright
+copyright: Copyright &copy; 2024 Lumos Team
+
+# Configuration
+theme:
+  name: material
+  palette:
+    # Palette toggle for light mode
+    - scheme: default
+      primary: indigo
+      accent: purple
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    # Palette toggle for dark mode
+    - scheme: slate
+      primary: indigo
+      accent: purple
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+
+  font:
+    text: Roboto
+    code: Roboto Mono
+
+  features:
+    - navigation.instant
+    - navigation.instant.prefetch
+    - navigation.tracking
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
+    - navigation.expand
+    - navigation.path
+    - navigation.indexes
+    - toc.follow
+    - toc.integrate
+    - search.highlight
+    - search.share
+    - search.suggest
+    - header.autohide
+    - content.action.edit
+    - content.action.view
+    - content.code.copy
+    - content.code.select
+    - content.code.annotate
+    - content.tabs.link
+    - content.tooltips
+    - announce.dismiss
+
+  icon:
+    repo: fontawesome/brands/github
+    logo: material/lightbulb-on
+    edit: material/pencil
+    view: material/eye
+
+  favicon: assets/favicon.ico
+
+# Plugins
+plugins:
+  - search:
+      separator: '[\s\-,:!=\[\]()"`/]+|\.(?!\d)|&[lg]t;|(?!\b)(?=[A-Z][a-z])'
+  - minify:
+      minify_html: true
+  - git-revision-date-localized:
+      enable_creation_date: true
+      type: timeago
+
+# Extensions
+markdown_extensions:
+  - abbr
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - toc:
+      permalink: true
+      title: On this page
+  - tables
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+      emoji_index: !!python/name:materialx.emoji.twemoji
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.magiclink:
+      repo_url_shorthand: true
+      user: lumos
+      repo: lumos
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
+
+# Page tree
+nav:
+  - Home: index.md
+  - Getting Started:
+      - Overview: getting-started/index.md
+      - Installation: getting-started/installation.md
+      - Quick Start: getting-started/quick-start.md
+      - First Analysis: getting-started/first-analysis.md
+  - CLI Reference:
+      - Commands Overview: cli/commands.md
+      - analyze: cli/analyze.md
+      - init: cli/init.md
+      - validate: cli/validate.md
+      - research: cli/research.md
+      - debug: cli/debug.md
+      - config: cli/config.md
+      - cache: cli/cache.md
+      - status: cli/status.md
+  - SDK & Integration:
+      - JavaScript SDK: sdk/integration.md
+      - Node.js Integration: sdk/nodejs.md
+      - CI/CD Integration: sdk/ci-cd.md
+      - Playwright Integration: sdk/playwright.md
+      - Jest Integration: sdk/jest.md
+      - Custom Integrations: sdk/custom.md
+  - Advanced Usage:
+      - Configuration: advanced/configuration.md
+      - AI Providers: advanced/ai-providers.md
+      - Pattern Engine: advanced/pattern-engine.md
+      - Custom Analyzers: advanced/custom-analyzers.md
+      - Enterprise Features: advanced/enterprise.md
+      - Performance Tuning: advanced/performance.md
+  - API Reference:
+      - REST API: reference/api.md
+      - WebSocket API: reference/websocket.md
+      - Configuration Schema: reference/config-schema.md
+      - Error Codes: reference/error-codes.md
+      - Response Formats: reference/response-formats.md
+  - Examples:
+      - Common Use Cases: examples/use-cases.md
+      - Error Analysis Examples: examples/error-analysis.md
+      - Integration Examples: examples/integrations.md
+      - Best Practices: examples/best-practices.md
+  - Contributing:
+      - Development Guide: contributing/development.md
+      - Code Style: contributing/code-style.md
+      - Testing: contributing/testing.md
+      - Documentation: contributing/documentation.md
+      - Release Process: contributing/releases.md
+
+# Extra CSS and JavaScript
+extra_css:
+  - stylesheets/extra.css
+
+extra_javascript:
+  - javascripts/mathjax.js
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+
+# Extra
+extra:
+  analytics:
+    provider: google
+    property: G-XXXXXXXXXX # Replace with actual Google Analytics ID
+
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/lumos/lumos
+    - icon: fontawesome/brands/twitter
+      link: https://twitter.com/lumos_ai
+    - icon: fontawesome/brands/linkedin
+      link: https://linkedin.com/company/lumos-ai
+    - icon: fontawesome/brands/discord
+      link: https://discord.gg/lumos
+
+  version:
+    provider: mike
+    default: latest
+
+  status:
+    new: Recently added
+    deprecated: Deprecated
+
+  generator: false

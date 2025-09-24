@@ -1,0 +1,19 @@
+{
+  "scenario": "type-error",
+  "error": "TypeError: Cannot read properties of null (reading toUpperCase)",
+  "context": {
+    "scenario": "TypeError",
+    "file": "/Users/dakshana.j/Desktop/Desktop/Breeze_repos/testing-agent-model/tests/demo/lumos-showcase.spec.ts",
+    "context": "Playwright test calling method on null value"
+  },
+  "timestamp": "2025-09-22T09:22:56.746Z",
+  "note": "This demonstrates the analysis structure. With API keys configured, real AI insights would be generated.",
+  "expectedFeatures": [
+    "AI-powered error categorization",
+    "Root cause analysis",
+    "Step-by-step fix suggestions",
+    "Research integration from Stack Overflow/GitHub",
+    "Multi-provider fallback (OpenAI → Anthropic → Google)",
+    "Confidence scoring and pattern recognition"
+  ]
+}

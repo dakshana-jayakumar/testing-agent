@@ -1,0 +1,17 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "outDir": "./dist-test",
+    "noEmit": true,
+    "types": ["node", "vitest", "@playwright/test", "better-sqlite3"]
+  },
+  "include": [
+    "src/**/*",
+    "tests/**/*",
+    "mock-server/**/*"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist"
+  ]
+}

@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lumos Demo - Testing Intelligence Showcase</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        .demo-section {
+            margin: 20px 0;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+        }
+        button {
+            background: #ff6b6b;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin: 5px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        button:hover {
+            background: #ff5252;
+        }
+        .loading {
+            display: none;
+            color: #ffd93d;
+        }
+        .error-display {
+            background: rgba(255, 107, 107, 0.2);
+            border: 1px solid #ff6b6b;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            font-family: monospace;
+            font-size: 12px;
+        }
+        .success {
+            background: rgba(46, 204, 113, 0.2);
+            border: 1px solid #2ecc71;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔮 Lumos AI Testing Intelligence Demo</h1>
+        
+        <div class="demo-section">
+            <h3>🐛 Error Scenario 1: Reference Error</h3>
+            <p>This will trigger a ReferenceError that Lumos AI will analyze:</p>
+            <button id="referenceErrorBtn" onclick="triggerReferenceError()">Trigger Reference Error</button>
+            <div id="referenceErrorResult"></div>
+        </div>
+
+        <div class="demo-section">
+            <h3>🌐 Error Scenario 2: Network Request Failure</h3>
+            <p>This will demonstrate API error analysis:</p>
+            <button id="networkErrorBtn" onclick="triggerNetworkError()">Trigger Network Error</button>
+            <div id="networkErrorResult"></div>
+            <div class="loading" id="networkLoading">Making request...</div>
+        </div>
+
+        <div class="demo-section">
+            <h3>🎯 Error Scenario 3: DOM Element Not Found</h3>
+            <p>This will show selector failure analysis:</p>
+            <button id="domErrorBtn" onclick="triggerDOMError()">Trigger DOM Error</button>
+            <div id="domErrorResult"></div>
+        </div>
+
+        <div class="demo-section">
+            <h3>⚡ Error Scenario 4: Type Error</h3>
+            <p>This will demonstrate type-related error analysis:</p>
+            <button id="typeErrorBtn" onclick="triggerTypeError()">Trigger Type Error</button>
+            <div id="typeErrorResult"></div>
+        </div>
+
+        <div class="demo-section">
+            <h3>🎉 Success Scenario</h3>
+            <p>This works correctly (no errors for comparison):</p>
+            <button id="successBtn" onclick="triggerSuccess()">Trigger Success</button>
+            <div id="successResult"></div>
+        </div>
+
+        <div class="demo-section">
+            <h3>📊 Test Status</h3>
+            <div id="testStatus">Ready for testing...</div>
+        </div>
+    </div>
+
+    <script>
+        // Intentional errors for Lumos to analyze
+        
+        function triggerReferenceError() {
+            try {
+                document.getElementById('referenceErrorResult').innerHTML = '<div class="loading">Triggering error...</div>';
+                
+                // This will cause a ReferenceError: undefinedVariable is not defined
+                console.log(undefinedVariable.someProperty);
+                
+            } catch (error) {
+                document.getElementById('referenceErrorResult').innerHTML = 
+                    `<div class="error-display">❌ ${error.name}: ${error.message}</div>`;
+                console.error('ReferenceError caught:', error);
+            }
+        }
+
+        function triggerNetworkError() {
+            const loading = document.getElementById('networkLoading');
+            const result = document.getElementById('networkErrorResult');
+            
+            loading.style.display = 'block';
+            result.innerHTML = '';
+            
+            // This will cause a network error (non-existent endpoint)
+            fetch('https://api.nonexistent-domain-12345.com/data')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+                    }
+                    return response.json();
+                })
+                .catch(error => {
+                    loading.style.display = 'none';
+                    result.innerHTML = 
+                        `<div class="error-display">❌ Network Error: ${error.message}</div>`;
+                    console.error('Network error:', error);
+                });
+        }
+
+        function triggerDOMError() {
+            try {
+                document.getElementById('domErrorResult').innerHTML = '<div class="loading">Searching for element...</div>';
+                
+                // This will cause an error - element doesn't exist
+                const nonExistentElement = document.getElementById('non-existent-element-id');
+                nonExistentElement.style.color = 'red'; // TypeError: Cannot read properties of null
+                
+            } catch (error) {
+                document.getElementById('domErrorResult').innerHTML = 
+                    `<div class="error-display">❌ ${error.name}: ${error.message}</div>`;
+                console.error('DOM error:', error);
+            }
+        }
+
+        function triggerTypeError() {
+            try {
+                document.getElementById('typeErrorResult').innerHTML = '<div class="loading">Processing data...</div>';
+                
+                // This will cause a TypeError
+                const nullValue = null;
+                const result = nullValue.toUpperCase(); // TypeError: Cannot read properties of null
+                
+            } catch (error) {
+                document.getElementById('typeErrorResult').innerHTML = 
+                    `<div class="error-display">❌ ${error.name}: ${error.message}</div>`;
+                console.error('Type error:', error);
+            }
+        }
+
+        function triggerSuccess() {
+            const result = document.getElementById('successResult');
+            result.innerHTML = '<div class="loading">Processing...</div>';
+            
+            setTimeout(() => {
+                result.innerHTML = 
+                    '<div class="success">✅ Success! This operation completed without errors.</div>';
+                console.log('Success: Operation completed successfully');
+            }, 1000);
+        }
+
+        // Update test status
+        function updateTestStatus(message) {
+            document.getElementById('testStatus').innerHTML = message;
+        }
+
+        // Add some console info for debugging
+        console.log('🔮 Lumos Demo Page Loaded');
+        console.log('Ready to demonstrate AI-powered error analysis');
+        
+        // Add window error handler to catch unhandled errors
+        window.addEventListener('error', function(event) {
+            console.error('Unhandled error:', event.error);
+            updateTestStatus(`❌ Unhandled Error: ${event.error.message}`);
+        });
+
+        // Add unhandled promise rejection handler
+        window.addEventListener('unhandledrejection', function(event) {
+            console.error('Unhandled promise rejection:', event.reason);
+            updateTestStatus(`❌ Unhandled Promise Rejection: ${event.reason}`);
+        });
+    </script>
+</body>
+</html>

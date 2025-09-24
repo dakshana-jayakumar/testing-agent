@@ -1,0 +1,139 @@
+/* Custom styles for Lumos Documentation */
+
+:root {
+  --lumos-primary: #6366f1;
+  --lumos-secondary: #8b5cf6;
+  --lumos-accent: #06b6d4;
+  --lumos-success: #10b981;
+  --lumos-warning: #f59e0b;
+  --lumos-error: #ef4444;
+}
+
+/* Brand customization */
+.md-header {
+  background: linear-gradient(135deg, var(--lumos-primary), var(--lumos-secondary));
+}
+
+.md-typeset h1 {
+  color: var(--lumos-primary);
+  font-weight: 700;
+}
+
+.md-typeset h2 {
+  color: var(--lumos-secondary);
+  border-bottom: 2px solid var(--lumos-accent);
+  padding-bottom: 0.5rem;
+}
+
+/* Code blocks */
+.md-typeset .highlight pre,
+.md-typeset .highlight code {
+  border-radius: 8px;
+}
+
+/* Admonitions */
+.md-typeset .admonition {
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Custom button styles */
+.lumos-button {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background: linear-gradient(135deg, var(--lumos-primary), var(--lumos-secondary));
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  margin: 0.5rem 0;
+}
+
+.lumos-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+  color: white;
+}
+
+/* Feature cards */
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.feature-card {
+  padding: 1.5rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  background: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+.feature-icon {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: var(--lumos-primary);
+}
+
+/* Dark mode adjustments */
+[data-md-color-scheme="slate"] .feature-card {
+  background: #1e293b;
+  border-color: #334155;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .feature-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .lumos-button {
+    display: block;
+    text-align: center;
+  }
+}
+
+/* CLI output styling */
+.cli-output {
+  background: #1a1a1a;
+  color: #00ff00;
+  padding: 1rem;
+  border-radius: 8px;
+  font-family: 'Roboto Mono', monospace;
+  overflow-x: auto;
+}
+
+/* Status badges */
+.status-badge {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 16px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.status-badge.new {
+  background: var(--lumos-success);
+  color: white;
+}
+
+.status-badge.deprecated {
+  background: var(--lumos-warning);
+  color: white;
+}
+
+.status-badge.experimental {
+  background: var(--lumos-accent);
+  color: white;
+}
